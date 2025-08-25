@@ -1,4 +1,38 @@
-# Rust Backend Actix
+# Rust Backend Actix Template Clean Architecture
+
+```
+src
+├── config
+│   ├── db
+│   │   └── mod.rs
+│   └── mod.rs
+├── dto
+│   ├── health_check.rs
+│   ├── mod.rs
+│   └── users.rs
+├── handler
+│   ├── health_check.rs
+│   ├── mod.rs
+│   ├── post_handler.rs
+│   └── user_handler.rs
+├── main.rs
+├── models.rs
+├── repository
+│   ├── mod.rs
+│   ├── post_repo.rs
+│   └── user_repo.rs
+├── schema.rs
+└── service
+│   ├── mod.rs
+│   ├── post_service.rs
+│   └── user_service.rs
+├── migrations
+├──Cargo.lock
+├──Cargo.toml
+├──Dockerfile
+├──README.md
+├──diesel.toml
+```
 
 ## Run
 
