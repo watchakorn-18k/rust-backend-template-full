@@ -1,0 +1,12 @@
+-- Your SQL goes here
+CREATE TABLE "users"(
+	"id" INT4 NOT NULL PRIMARY KEY,
+	"name" VARCHAR NOT NULL,
+	"age" INT4 NOT NULL
+);
+
+CREATE TABLE "post"(
+	"id" INT4 NOT NULL PRIMARY KEY,
+	"name" VARCHAR NOT NULL
+);
+
