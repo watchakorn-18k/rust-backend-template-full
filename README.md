@@ -16,7 +16,8 @@ src
 │   ├── health_check.rs
 │   ├── mod.rs
 │   ├── post_handler.rs
-│   └── user_handler.rs
+│   ├── user_handler.rs
+│   └── ws_handler.rs
 ├── main.rs
 ├── models.rs
 ├── repository
@@ -24,16 +25,16 @@ src
 │   ├── post_repo.rs
 │   └── user_repo.rs
 ├── schema.rs
-└── service
+├── service
 │   ├── mod.rs
 │   ├── post_service.rs
 │   └── user_service.rs
 ├── migrations
-├──Cargo.lock
-├──Cargo.toml
-├──Dockerfile
-├──README.md
-├──diesel.toml
+├── Cargo.lock
+├── Cargo.toml
+├── Dockerfile
+├── README.md
+└── diesel.toml
 ```
 
 ## Run
@@ -67,10 +68,18 @@ diesel_ext --model -t -d "Queryable, Debug, Clone, Serialize, Deserialize" > src
 
 ## Spec API
 
+- HTTP
+
 ```bash
 curl http://localhost:1323/health-check
 curl http://localhost:1323/users
 curl http://localhost:1323/posts
+```
+
+- WebSocket
+
+```bash
+ws://localhost:1323/ws?id=test_1234
 ```
 
 ## Mock Data

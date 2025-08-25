@@ -42,6 +42,8 @@ async fn main() -> std::io::Result<()> {
             .service(handler::health_check::health_check)
             .service(handler::user_handler::get_users)
             .service(handler::post_handler::get_posts)
+            // --- WebSocket route ---
+            .route("/ws", web::get().to(handler::ws_handler::ws_upgrade))
     })
     .bind(format!("0.0.0.0:{}", port))?
     .run()

@@ -28,7 +28,6 @@ COPY --from=cacher /app/target target
 COPY --from=cacher /usr/local/cargo /usr/local/cargo
 COPY . .
 
-# อย่าลืมให้ binary name ตรงกับของจริง
 RUN cargo build --release --bin wk18k-api
 
 # ---------- Stage 3: Runtime ----------
