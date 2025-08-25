@@ -71,9 +71,9 @@ diesel_ext --model -t -d "Queryable, Debug, Clone, Serialize, Deserialize" > src
 - HTTP
 
 ```bash
-curl http://localhost:1323/health-check
-curl http://localhost:1323/users
-curl http://localhost:1323/posts
+curl http://localhost:1323/
+curl http://localhost:1323/v1/users
+curl http://localhost:1323/v1/posts
 ```
 
 - WebSocket

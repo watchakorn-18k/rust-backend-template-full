@@ -39,11 +39,15 @@ async fn main() -> std::io::Result<()> {
             .wrap(middleware::Logger::new("%a '%r' %s %Dms"))
             .app_data(web::Data::new(user_service.clone()))
             .app_data(web::Data::new(post_service.clone()))
-            .service(handler::health_check::health_check)
-            .service(handler::user_handler::get_users)
-            .service(handler::post_handler::get_posts)
-            // --- WebSocket route ---
-            .route("/ws", web::get().to(handler::ws_handler::ws_upgrade))
+            .route("/", web::get().to(handler::health_check::health_check))
+            // --- API group ---
+            .service(
+                web::scope("/v1")
+                    .route("/users", web::get().to(handler::user_handler::get_users))
+                    .route("/posts", web::get().to(handler::post_handler::get_posts)),
+            )
+            // --- WebSocket group ---
+            .service(web::scope("/ws").route("", web::get().to(handler::ws_handler::ws_upgrade)))
     })
     .bind(format!("0.0.0.0:{}", port))?
     .run()
